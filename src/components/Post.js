@@ -77,7 +77,7 @@ function Post(props){
             <button onClick={handleClick}>{isLiked ? "dislike" : "like"}</button>
             <span>{
                isLiked ?
-                postLikes.length-1==0 ? "you" : postLikes.length-1==1 ? "you and 1 other":`you and '${postLikes.length-1}`  : postLikes.length
+                postLikes.length-1==0 ? "you" : postLikes.length-1==1 ? "you and 1 other":`you and ${postLikes.length-1} others`   : postLikes.length
             }
             </span>
             </div>
