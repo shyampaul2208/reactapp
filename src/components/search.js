@@ -5,6 +5,7 @@ import Post from "./Post";
 function Search(props){
 const[content,setContent]=useState("");
 const[users,setUsers]=useState([]);
+const[posts,setPosts]=useState([]);
 const user=props.user;
  
 function handleChange(event){
@@ -21,9 +22,26 @@ function handleClick(){
     }).catch(err=>console.log(err));
 
     }
+}
+
+function callPosts(event){
+    
+
+    
+    axios.get(`https://friendly-celsius-82819.herokuapp.com/user/${event.target.key}`,{withCredentials:true}).then((res)=>{  
+    setPosts(res.data);
+    }).catch(err=>console.log(err));
 
     
 }
+
+
+
+
+
+
+   
+
 
  return(
      <div class="searchbox">
@@ -35,11 +53,23 @@ function handleClick(){
          {
         
                 users.map((person)=>{
-             return <div className="card"> {person.name}</div>
+             return <div className="card" key={person._id} onClick={callPosts}> {person.name}</div>
           })
          }
          
      </div>
+
+    <div>
+         {
+        
+                posts.map((image)=>{
+             return <div className="card"><Post className="card" key={image._id} userid={props.user._id} imageid={image._id} text={image.description} src={image.selectedFile} creator={image.createdBy.name} likes={image.likes}/> </div>
+          })
+         }
+         
+     </div>
+
+
 
      </div>
 
