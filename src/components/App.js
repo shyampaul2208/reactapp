@@ -16,8 +16,8 @@ function App() {
 
 
   useEffect(()=>{
-    console.log("hii")
-    axios.get("https://friendly-celsius-82819.herokuapp.com/",{withCredentials:true}).then((response)=>{
+    
+    axios.get("https://friendly-celsius-82819.herokuapp.com/user",{withCredentials:true}).then((response)=>{
      
      console.log(response)
       if (response.status === 200){
