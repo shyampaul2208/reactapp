@@ -19,13 +19,13 @@ function App() {
     
     axios.get("https://friendly-celsius-82819.herokuapp.com/user",{withCredentials:true}).then((response)=>{
      
-     console.log(response)
+    
       if (response.status === 200){
         setIsAuthentcated(true)
         setUser(response.data.user);
       }
     }).catch(err=>{
-      console.log(err)
+      console.log(err);
     })
   },[])
 
