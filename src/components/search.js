@@ -28,7 +28,8 @@ function callPosts(event){
     
 
     
-    axios.get(`https://friendly-celsius-82819.herokuapp.com/user/${event.target.key}`,{withCredentials:true}).then((res)=>{  
+    axios.get(`https://friendly-celsius-82819.herokuapp.com/user/${event.target.key}`,{withCredentials:true}).then((res)=>{ 
+        console.log(res.data); 
     setPosts(res.data);
     }).catch(err=>console.log(err));
 
