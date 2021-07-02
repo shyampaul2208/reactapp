@@ -26,7 +26,7 @@ function handleClick(){
 
 function callPosts(event){
     
-
+  console.log(event.target.key);
     
     axios.get(`https://friendly-celsius-82819.herokuapp.com/user/${event.target.key}`,{withCredentials:true}).then((res)=>{ 
         console.log(res.data); 
