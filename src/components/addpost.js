@@ -11,6 +11,7 @@ function Addpost(props){
     });
 
     const[isSubmitted,setIsSubmitted]=useState(false);
+    const[isuploaded,setIsuploaded]=useState(false);
    
     function handleDescriptionChange(event){
      const value=event.target.value
@@ -35,13 +36,13 @@ function Addpost(props){
 
     function formSubmit(event){
         event.preventDefault()
+        setIsuploaded(true);
         
 
         if(post.selectedFile || post.description)
         {
           console.log(post)
         axios.post("https://friendly-celsius-82819.herokuapp.com/addpost",post,{withCredentials:true}).then((res)=>{
-          console.log(res)
           setIsSubmitted(true)
         }).catch(err=>{
           console.log(err);
@@ -117,6 +118,10 @@ function Addpost(props){
                 }
               }}
             />}
+
+        {
+          isuploaded && <h2>adding post ...</h2>
+        }
     
     </div>
     
