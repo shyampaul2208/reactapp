@@ -50,7 +50,7 @@ function MyPosts(props){
              </div>
           )
           
-       }) : "loading ..."
+       }) : <h1>loading ...</h1>
     }
     </div>
    )

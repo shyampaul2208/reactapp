@@ -82,7 +82,7 @@ function Editpost(props){
         <div className="container-fluid">
         {
           
-          post==null ? "loading ..." :
+          post==null ? <h1>loading ...</h1> :
         
 
         <div className="card addpost">
