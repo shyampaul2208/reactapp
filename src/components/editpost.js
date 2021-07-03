@@ -5,7 +5,7 @@ import { Route, Redirect } from "react-router-dom";
 
 function Editpost(props){
 
-    const [post,setPost]=useState({});
+    const [post,setPost]=useState(null);
     
      useEffect(()=>{
          axios.get(`https://friendly-celsius-82819.herokuapp.com/post/${props.match.params.id}`,{withCredentials:true}).then((res)=>{
@@ -82,7 +82,7 @@ function Editpost(props){
         <div className="container-fluid">
         {
           
-          post=={} ? "loading ..." :
+          post==null ? "loading ..." :
         
 
         <div className="card addpost">
