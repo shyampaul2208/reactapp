@@ -36,12 +36,10 @@ function Addpost(props){
 
     function formSubmit(event){
         event.preventDefault()
-        setIsuploaded(true);
-        
-
+      
         if(post.selectedFile || post.description)
         {
-          console.log(post)
+          setIsuploaded(true);
         axios.post("https://friendly-celsius-82819.herokuapp.com/addpost",post,{withCredentials:true}).then((res)=>{
           setIsSubmitted(true)
         }).catch(err=>{
@@ -72,6 +70,11 @@ function Addpost(props){
       <form onSubmit={formSubmit}>
         
         <div>
+
+        
+        {
+          isuploaded && <h2>adding post ...</h2>
+        }
 
        {post.selectedFile && <img className="image" src={post.selectedFile} />}
 
@@ -119,9 +122,7 @@ function Addpost(props){
               }}
             />}
 
-        {
-          isuploaded && <h2>adding post ...</h2>
-        }
+       
     
     </div>
     
