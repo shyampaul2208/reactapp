@@ -27,11 +27,13 @@ function handleClick(){
 
 function callPosts(event){
     
-  console.log(event.target.name);
+
+  setContent(event.target.value);
     
     axios.get(`https://friendly-celsius-82819.herokuapp.com/user/${event.target.name}`,{withCredentials:true}).then((res)=>{ 
     setPosts(res.data);
     setUsers([]);
+    
     }).catch(err=>console.log(err));
 
     
@@ -55,7 +57,7 @@ function callPosts(event){
          {
         
                 users.map((person)=>{
-             return <button className="card" name={person._id} onClick={callPosts}> {person.name}</button>
+             return <button className="card" name={person._id} value={person.name} onClick={callPosts}> {person.name}</button>
           })
          }
          
