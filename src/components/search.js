@@ -48,10 +48,12 @@ function callPosts(event){
 
 
  return(
+     <div>
      <div class="searchbox">
      
      <input className="search" type="text" value={content} onChange={handleChange} placeholder="search" />
      <button onClick={handleClick}>search</button>
+     </div>
       
      <div>
          {
@@ -75,6 +77,7 @@ function callPosts(event){
 
 
 
+     
      </div>
 
  );
