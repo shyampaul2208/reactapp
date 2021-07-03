@@ -38,7 +38,7 @@ function MyPosts(props){
 
    return (
     <div className="container-fluid">
-      {
+      {myuploads.length ?
        myuploads.map((image,index)=>{
           return (
              <div className="card">
@@ -50,7 +50,7 @@ function MyPosts(props){
              </div>
           )
           
-       })
+       }) : "loading ..."
     }
     </div>
    )

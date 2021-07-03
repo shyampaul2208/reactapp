@@ -80,6 +80,10 @@ function Editpost(props){
 
     return(
         <div className="container-fluid">
+        {
+          
+          post=={} ? "loading ..." :
+        
 
         <div className="card addpost">
       
@@ -120,6 +124,7 @@ function Editpost(props){
             />}
     
     </div>
+        }
         </div>
     );
     
