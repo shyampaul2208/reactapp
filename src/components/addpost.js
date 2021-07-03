@@ -64,56 +64,68 @@ function Addpost(props){
 
     return(
         <div className="container-fluid">
-        <div className="card addpost">
-        
-        
-      <form onSubmit={formSubmit}>
-        
-        <div>
 
-        
         {
-          isuploaded && <h2>adding post ...</h2>
+           isuploaded ? <h2>adding post ...</h2> :
+           <div className="card addpost">
+        
+        
+        <form onSubmit={formSubmit}>
+          
+          <div>
+  
+          
+          
+         {post.selectedFile && <img className="image" src={post.selectedFile} />}
+  
+        
+         
+          <div>
+          <FileBase
+          type="file"
+          multiple={false}
+          onDone={({base64})=>setPost({...post,selectedFile:base64})}
+          value={post.selectedFile}
+          
+           />
+  
+           </div>
+           </div>
+           
+           
+  
+            
+          
+  
+          <div>
+          <textarea
+          className="addDescription"
+            onChange={handleDescriptionChange}
+            value={post.description}
+            name="description"
+            placeholder="description"
+            rows="2"
+          />
+          </div>
+          <button
+          type="submit">
+            Add
+          </button>
+        </form>
+  
+        
+  
+         
+      
+      </div>
+
+
         }
 
-       {post.selectedFile && <img className="image" src={post.selectedFile} />}
 
-      
        
-        <div>
-        <FileBase
-        type="file"
-        multiple={false}
-        onDone={({base64})=>setPost({...post,selectedFile:base64})}
-        value={post.selectedFile}
-        
-         />
 
-         </div>
-         </div>
-         
-         
-
-          
-        
-
-        <div>
-        <textarea
-        className="addDescription"
-          onChange={handleDescriptionChange}
-          value={post.description}
-          name="description"
-          placeholder="description"
-          rows="2"
-        />
-        </div>
-        <button
-        type="submit">
-          Add
-        </button>
-      </form>
-
-      {isSubmitted && <Redirect
+    {isSubmitted && <Redirect
               to={{
                 pathname: "/myposts",
                 state: {
@@ -121,10 +133,6 @@ function Addpost(props){
                 }
               }}
             />}
-
-       
-    
-    </div>
     
         </div>
     );
