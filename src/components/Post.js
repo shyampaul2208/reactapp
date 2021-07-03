@@ -67,7 +67,7 @@ function Post(props){
             <h2 className="card-header">{props.creator}</h2>
 
             {
-                props.src && <img className="image" src={props.src} alt="a image" />
+                props.src && <img className="image" src={props.src} alt="a image" loading="lazy" />
                 
             }
             
