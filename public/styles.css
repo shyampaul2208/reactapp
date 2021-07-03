@@ -12,6 +12,7 @@ body{
 .navbar{
     padding:0 0 5px;
     position: sticky;
+    top: 0;
 
 }
 
@@ -41,7 +42,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    position: sticky;
     
 }
 
