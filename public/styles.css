@@ -112,7 +112,7 @@ body{
 }
 
 
-@media (max-width: 600 ) {
+@media (max-width: 600px ) {
     
     .card{
         width: 100vw;
